@@ -1,7 +1,7 @@
 .formulario{
     width: 400px;
-    padding: 30px;
-    border:1px solid #ccc;
+    padding: 20px;
+    border:1.5px solid #ccc;
 }
 .formulario p{
     width: 100%;
@@ -9,12 +9,12 @@
 }
 .field{
     width: 100%;
-    margin: 15px 0;
+    margin: 8px 0;
 }
 .field label, 
 .field span{
     padding-left: 10px;
-    font-size: 1.1em;
+    font-size: 1em;
     display: block;
     width: 100%;
 }
@@ -29,7 +29,7 @@ input[type=number],
 textarea{
     width: 100%;
     padding-left: 10px;
-    height: 30px;
+    height: 20px;
     line-height: 30px;
     border-radius: 15px;
     outline: none;
@@ -40,7 +40,7 @@ input[type=tel],
 
 textarea{
     padding-left: 10px;
-    height: 30px;
+    height: 20px;
     line-height: 30px;
     border-radius: 15px;
     outline: none;

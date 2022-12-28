@@ -1,9 +1,26 @@
+<?php
+
+require_once('conexao.php');
+
+$estados = "SELECT * FROM estados";
+$cidades = "SELECT * FROM cidades";
+$dados_estados = mysqli_query($conn,$estados) or die(mysqli_error());
+$dados_cidades = mysqli_query($conn,$cidades) or die(mysqli_error());
+
+if (!$conn) {
+    die("A conexão com o banco de dados falhou: " . mysqli_connect_error());
+}
+else {
+ 
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <title>Teste para DEV PHP</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" type="text/css" href="estilo.css">
+
 </head>
 <body>
     <form class='formulario' method="post" action="cadastra.php"> 
@@ -38,18 +55,47 @@
             <label for="endereco">Seu Endereço:</label>
             <input type="text" id="endereco" name="endereco" placeholder="R/T/Av, Logradouro, numero" required>
         </div>
-        <div class="field">
-        <select name="estado" id="estado">
-            <option value="1">estado</option>
+
+        <div class="field">      
+        <select name="estado" id="estado">    
+            <option value="" selected = selected>Selecione seu estado</option>
+            
+            <?php
+                $linha_estado = mysqli_fetch_assoc($dados_estados);
+                $total_estado = mysqli_num_rows($dados_estados);
+
+                if($total_estado > 0) {
+                    do {
+                        echo "<option value='".$linha_estado['uf']."'>".$linha_estado['estado']."</option>";
+                    }while($linha_estado = mysqli_fetch_assoc($dados_estados));
+                }
+            ?>
         </select>
         </div>
-        <div class="field">
-            <select name="cidade" id="cidade">
-            <option value="1">estado</option>
-        </select>
-        </div>
-        <input type="submit" value="Cadastrar" >
         
+        <div class="field">      
+        <select name="cidade" id="cidade">    
+            <option value="" selected = selected>Selecione seu cidade</option>
+            
+            <?php
+                $linha_cidade = mysqli_fetch_assoc($dados_cidades);
+                $total_cidade = mysqli_num_rows($dados_cidades);
+
+                if($total_cidade > 0) {
+                    do { 
+                        echo "<option value='".$linha_cidade['cidade']."'>".$linha_cidade['cidade']."</option>";
+                    }while($linha_cidade = mysqli_fetch_assoc($dados_cidades));
+                }
+            ?>
+        </select>
+        </div>
+
+        <input type="submit" value="Cadastrar" >
     </form>
+    <a href = "exibicao.php"><button>Usuarios cadastrados</button></a>
+
 </body>
 </html>
+<?php
+}
+?>  

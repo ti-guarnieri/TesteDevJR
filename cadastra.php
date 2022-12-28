@@ -22,17 +22,23 @@ echo "estado: $estado <br>";
 echo "cidade: $cidade <br>";
 
 $script_pessoa = "INSERT INTO `pessoas`
-( `nome`, `CPF`, `nasc`, `email`, `telefone`, `endereco`, `id_cidade`, `criado`) VALUES 
-('$nome',$cpf,'$nasc','$email', $telefone,'$endereco',$cidade,CURRENT_DATE)";
+( `nome`, `CPF`, `nasc`, `email`, `telefone`, `endereco`, `estado`, cidade, `criado`) VALUES 
+('$nome',$cpf,'$nasc','$email', $telefone,'$endereco', '$estado', '$cidade', now())";
 
 if(mysqli_query($conn, $script_pessoa)) {
-    echo "New record created successfully <br>";
+    echo "<br> Novo cadastro realizado com sucesso! <br><hr><br>";
 }else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 };
+?>
 
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-echo "Connected successfully";
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Pessoas cadastradas</title>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<a href = "exibicao.php"><button>Usuarios cadastrados</button></a>
+</body>
+</html>
