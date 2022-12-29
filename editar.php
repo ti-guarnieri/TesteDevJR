@@ -18,10 +18,12 @@ $dados_cidades = mysqli_query($conn,$cidades) or die(mysqli_error());
 	<head>
 		<meta charset="utf-8">
 		<title>Editar cadastro</title>	
-        <link rel="stylesheet" type="text/css" href="estilo.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 	
 	</head>
 	<body>
+    <div class="container">
+
 		<a href="index.php">Cadastrar</a><br>
 		<a href="exibicao.php">Listar</a><br>
 		<h1>Editar cadastro</h1>
@@ -64,7 +66,7 @@ $dados_cidades = mysqli_query($conn,$cidades) or die(mysqli_error());
 
         <div class="field">      
         <select name="estado" id="estado">    
-            <option value="" selected = selected><?php echo $linha_pessoa['estado']; ?></option>
+            <option value="<?php echo $linha_pessoa['estado']; ?>" selected = selected><?php echo $linha_pessoa['estado']; ?></option>
             
             <?php
                 $linha_estado = mysqli_fetch_assoc($dados_estados);
@@ -81,7 +83,7 @@ $dados_cidades = mysqli_query($conn,$cidades) or die(mysqli_error());
         
         <div class="field">      
         <select name="cidade" id="cidade">    
-            <option value="" selected = selected><?php echo $linha_pessoa['cidade']; ?></option>
+            <option value="<?php echo $linha_pessoa['cidade']; ?>" selected = selected><?php echo $linha_pessoa['cidade']; ?></option>
             
             <?php
                 $linha_cidade = mysqli_fetch_assoc($dados_cidades);
@@ -95,8 +97,9 @@ $dados_cidades = mysqli_query($conn,$cidades) or die(mysqli_error());
             ?>
         </select>
         </div>
-
+        <br>
         <input type="submit" value="Salvar Edição" >
     </form>
+            </div>
 	</body>
 </html>

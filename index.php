@@ -19,41 +19,43 @@ else {
 <head>
     <title>Teste para DEV PHP</title>
     <meta charset="utf-8"/>
-    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 
 </head>
 <body>
+<div class="container">
+
     <form class='formulario' method="post" action="cadastra.php"> 
         <p> Preencha os dados para cadastro.</p>
         
         <div class="field">
             <label for="nome">Seu Nome:</label>
-            <input type="text" name="nome" placeholder="Digite seu nome" required>
+            <input type="text" name="nome" placeholder="Digite seu nome" required><br>
         </div>
         
         <div class="field">
             <label for="CPF">Seu CPF:</label>
-            <input type="text" name="CPF" placeholder="Digite seu CPF(Apenas Numeros)" pattern="[0-9]{11}" maxlength="11" required>
+            <input type="text" name="CPF" placeholder="Digite seu CPF(Apenas Numeros)" pattern="[0-9]{11}" maxlength="11" required><br>
         </div>
 
         <div class="field">
             <label for="nasc">Sua Data de Nascimento:</label>
-            <input type="date" id="nasc" name="nasc" required>
+            <input type="date" id="nasc" name="nasc" required><br>
         </div> 
         
         <div class="field">
             <label for="email">Seu E-Mail:</label>
-            <input type="email" id="email" name="email" placeholder="Digite seu E-Mail" required>
+            <input type="email" id="email" name="email" placeholder="Digite seu E-Mail" required><br>
         </div>
         
         <div class="field">
             <label for="telefone">Seu Telefone:</label>
-            <input type="tel" id="telefone" name="telefone" placeholder="Digite seu Telefone"  required> 
+            <input type="tel" id="telefone" name="telefone" placeholder="Digite seu Telefone"  required> <br>
         </div>
 
         <div class="field">
             <label for="endereco">Seu Endereço:</label>
-            <input type="text" id="endereco" name="endereco" placeholder="R/T/Av, Logradouro, numero" required>
+            <input type="text" id="endereco" name="endereco" placeholder="R/T/Av, Logradouro, numero" required><br>
         </div>
 
         <div class="field">      
@@ -72,7 +74,6 @@ else {
             ?>
         </select>
         </div>
-        
         <div class="field">      
         <select name="cidade" id="cidade">    
             <option value="" selected = selected>Selecione seu cidade</option>
@@ -89,11 +90,15 @@ else {
             ?>
         </select>
         </div>
-
+        <br>
         <input type="submit" value="Cadastrar" >
     </form>
-    <a href = "exibicao.php"><button>Usuarios cadastrados</button></a>
+            </div>
+            <br><br><br>
+            <div class="container">
 
+            <a href = "exibicao.php"><button>Listar Usuarios Cadastrados</button></a>
+            </div>
 </body>
 </html>
 <?php
