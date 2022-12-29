@@ -27,7 +27,8 @@ while($linha_pessoa = mysqli_fetch_assoc($exibe_pessoas)){
     echo "telefone: " .$linha_pessoa['telefone']."<br>" ;
     echo "email: " .$linha_pessoa['email']."<br>" ;    
     echo "estado: " .$linha_pessoa['estado']."<br>";
-    echo "cidade: " .$linha_pessoa['cidade']."<br><br><hr>" ;
+    echo "cidade: " .$linha_pessoa['cidade']."<br>";
+    echo "<a href='editar.php?id=" . $linha_pessoa['id'] . "'>Editar</a><br><hr>";
 }
 
 ?>
